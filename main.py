@@ -2,14 +2,14 @@
 
 # Load paths of files
 
-# Load taining config
+# Load training config
 
-# Create datset
+# Create dataset
 
 # Create data loader
 
 # Create model
 
-# Create noise schedulder
+# Create noise scheduler
 
 # Train and save model
