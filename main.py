@@ -1,7 +1,6 @@
 from trainingConfig import TrainingConfig
 
-# Download dataset
-
+# Download dataset with: git clone https://huggingface.co/datasets/MGKK/Prisonersi
 # Load paths of files
 
 # Load training config
