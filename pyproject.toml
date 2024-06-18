@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 pre-commit = "^3.7.1"
+jupyter = "^1.0.0"
 
 
 [build-system]

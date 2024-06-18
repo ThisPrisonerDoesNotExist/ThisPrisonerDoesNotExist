@@ -1,14 +1,15 @@
-print("Hello World")
+# Download dataset
 
+# Load paths of files
 
-class Klasa:
-    def __init__(self) -> None:
-        print("Konstruktor")
+# Load taining config
 
-    def metoda(self) -> None:
-        print("Metoda")
-        print("Test")
-        print("Test2")
+# Create datset
 
+# Create data loader
 
-Klasa().metoda()
+# Create model
+
+# Create noise schedulder
+
+# Train and save model
