@@ -40,13 +40,3 @@ class TrainingConfig:
     hub_private_repo = False
     overwrite_output_dir = True  # overwrite the old model when re-running the notebook
     seed = 0
-
-
-def getConfig() -> TrainingConfig:
-    """
-    Returns the training configuration.
-
-    Returns:
-    - TrainingConfig: the training configuration.
-    """
-    return TrainingConfig()

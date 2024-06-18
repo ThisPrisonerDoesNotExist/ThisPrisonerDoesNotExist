@@ -1,11 +1,11 @@
-from trainingConfig import getConfig
+from trainingConfig import TrainingConfig
 
 # Download dataset
 
 # Load paths of files
 
 # Load training config
-trainingConfig = getConfig()
+trainingConfig = TrainingConfig()
 # Create dataset
 
 # Create data loader
