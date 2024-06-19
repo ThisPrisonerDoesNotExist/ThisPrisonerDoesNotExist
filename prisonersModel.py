@@ -40,10 +40,3 @@ class PrisonersModel:
                 "UpBlock2D",
             ),
         )
-
-    def getModel(self) -> diffusers.models.unets.UNet2DModel:
-        """
-        Simple getter.
-        :return: unet2dmodel
-        """
-        return self.model
