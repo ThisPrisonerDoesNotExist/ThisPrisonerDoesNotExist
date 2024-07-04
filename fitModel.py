@@ -116,8 +116,6 @@ class FitModel:
                 progress_bar.set_postfix(**logs)
                 accelerator.log(logs, step=global_step)
                 global_step += 1
-
-            # After each epoch you optionally sample some demo images with evaluate() and save the model
             if accelerator.is_main_process:
                 pipeline = DDPMPipeline(
                     unet=accelerator.unwrap_model(model), scheduler=self.scheduler
