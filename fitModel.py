@@ -14,6 +14,23 @@ from trainingConfig import TrainingConfig
 
 
 class FitModel:
+    """
+    FitModel class for training the model.
+
+    Attributes:
+    - model: the model.
+    - scheduler: the scheduler.
+    - optimizer: the optimizer.
+    - dataloader: the data loader.
+    - lr_scheduler: the learning rate scheduler.
+    - ssim_metric: the structural similarity index measure.
+
+    Methods:
+    - __init__: initializes the model.
+    - evaluate: evaluates the model.
+    - train_loop: trains the model.
+    """
+
     def __init__(
         self,
         model: diffusers.models,
@@ -22,6 +39,19 @@ class FitModel:
         dataloader: torch.utils.data.dataloader.DataLoader,
         lr_scheduler: diffusers.optimization,
     ) -> None:
+        """
+        Initializes the model.
+
+        Args:
+        - model (diffusers.models): the model.
+        - scheduler (diffusers.schedulers.DDPMScheduler): the scheduler.
+        - optimizer (torch.optim): the optimizer.
+        - dataloader (torch.utils.data.dataloader.DataLoader): the data loader.
+        - lr_scheduler (diffusers.optimization): the learning rate scheduler.
+
+        Returns:
+        - None
+        """
         self.model = model
         self.scheduler = scheduler
         self.optimizer = optimizer
@@ -37,7 +67,19 @@ class FitModel:
         columns: int = 1,
         rows: int = 1,
     ) -> None:
-        """Evaluation model for each epoch."""
+        """
+        Evaluation model for each epoch.
+
+        Args:
+        - config (type[TrainingConfig]): the training config.
+        - epoch (int): the epoch.
+        - pipeline (diffusers.DDPMPipeline): the pipeline.
+        - columns (int): the columns.
+        - rows (int): the rows.
+
+        Returns:
+        - None
+        """
         images = pipeline(
             batch_size=config.eval_batch_size,
             generator=torch.Generator(device="cuda").manual_seed(config.seed),
@@ -50,6 +92,12 @@ class FitModel:
         image_grid.save(f"{test_dir}/{epoch:04d}.png")
 
     def train_loop(self) -> None:
+        """
+        Trains the model.
+
+        Returns:
+        - None
+        """
         # Initialize accelerator and tensorboard logging
         accelerator = Accelerator(
             mixed_precision=TrainingConfig.mixed_precision,
