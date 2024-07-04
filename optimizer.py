@@ -23,6 +23,17 @@ class Optimizer:
         optimizer: torch.optim,
         dataloader: torch.utils.data.dataloader.DataLoader,
     ):
+        """
+        Initializes the optimizer.
+
+        Args:
+        - model (diffusers.models): the model.
+        - optimizer (torch.optim): the optimizer.
+        - dataloader (torch.utils.data.dataloader.DataLoader): the data loader.
+
+        Returns:
+        - None
+        """
         self.optimizer = optimizer
         self.lr_scheduler = get_cosine_schedule_with_warmup(
             optimizer=self.optimizer,
