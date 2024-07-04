@@ -6,6 +6,17 @@ from trainingConfig import TrainingConfig
 
 
 class Optimizer:
+    """
+    Optimizer class for the model.
+
+    Attributes:
+    - optimizer: the optimizer.
+    - lr_scheduler: the learning rate scheduler.
+
+    Methods:
+    - __init__: initializes the optimizer.
+    """
+
     def __init__(
         self,
         model: diffusers.models,
