@@ -5,8 +5,13 @@ from diffusers.utils import make_image_grid
 
 class PrisonersModel:
     """
-    This class creates model to training
+    This class creates model for training
 
+    Attributes:
+    - model: the model.
+
+    Methods:
+    - __init__: initializes the model.
     """
 
     def __init__(
@@ -17,6 +22,16 @@ class PrisonersModel:
         layers_per_block: int,
         block_out_channels: tuple,
     ) -> None:
+        """
+        Initializes the model.
+
+        Args:
+        - sample_size (int): the sample size.
+        - in_channels (int): the input channels.
+        - out_channels (int): the output channels.
+        - layers_per_block (int): the layers per block.
+        - block_out_channels (tuple): the block out channels.
+        """
         self.model = UNet2DModel(
             sample_size=sample_size,
             in_channels=in_channels,
