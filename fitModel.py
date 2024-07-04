@@ -127,3 +127,4 @@ class FitModel:
                 ):
                     self.evaluate(TrainingConfig, epoch, pipeline)
                     pipeline.save_pretrained(TrainingConfig.output_dir)
+                    accelerator.save_model(model, TrainingConfig.output_dir)
