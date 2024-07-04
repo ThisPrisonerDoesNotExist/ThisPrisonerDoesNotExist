@@ -7,6 +7,7 @@ import torch.nn.functional as F
 from accelerate import Accelerator
 from diffusers import DDPMPipeline
 from diffusers.utils import make_image_grid
+from torchmetrics.image import StructuralSimilarityIndexMeasure
 from tqdm.auto import tqdm
 
 from trainingConfig import TrainingConfig
@@ -26,6 +27,7 @@ class FitModel:
         self.optimizer = optimizer
         self.dataloader = dataloader
         self.lr_scheduler = lr_scheduler
+        self.ssim_metric = StructuralSimilarityIndexMeasure(data_range=1.0).to("cuda")
 
     def evaluate(
         self,
@@ -101,6 +103,7 @@ class FitModel:
                     noise_pred = model(noisy_images, timesteps, return_dict=False)[0]
                     loss = F.mse_loss(noise_pred, noise)
                     accelerator.backward(loss)
+                    ssim = self.ssim_metric(noise_pred, noise).item()
 
                     accelerator.clip_grad_norm_(model.parameters(), 1.0)
                     optimizer.step()
@@ -112,6 +115,7 @@ class FitModel:
                     "loss": loss.detach().item(),
                     "lr": lr_scheduler.get_last_lr()[0],
                     "step": global_step,
+                    "ssim": ssim,
                 }
                 progress_bar.set_postfix(**logs)
                 accelerator.log(logs, step=global_step)

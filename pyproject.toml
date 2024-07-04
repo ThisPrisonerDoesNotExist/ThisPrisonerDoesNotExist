@@ -15,6 +15,7 @@ numpy = "<2"
 diffusers = "^0.29.0"
 accelerate = "^0.31.0"
 tensorboard = "^2.17.0"
+torchmetrics = "^1.4.0.post0"
 
 
 [build-system]
