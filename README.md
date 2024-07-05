@@ -14,4 +14,4 @@ Link to cleaned dataset - https://huggingface.co/datasets/MGKK/Prisonersi
 
 Link to model that generates images in resolution 64x64 - https://huggingface.co/MGKK/PrisonersGeneratorx64
 
-Link to model that generates images in resolution 128x128 - Will be added soon
+Link to model that generates images in resolution 128x128 - https://huggingface.co/MGKK/PrisonersGeneratorx128
