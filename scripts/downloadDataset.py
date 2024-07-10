@@ -1,7 +1,7 @@
 from git import Repo
 
-from trainingConfig import TrainingConfig
-from unzip import unzip_file
+from src.trainingConfig import TrainingConfig
+from src.unzip import unzip_file
 
 print("cloning repo")
 Repo.clone_from(TrainingConfig.dataset_url, TrainingConfig.download_data_dir)

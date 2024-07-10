@@ -1,13 +1,13 @@
 import torch
 from torch.utils.data import DataLoader
 
-from fitModel import FitModel
-from noiseScheduler import Scheduler
-from optimizer import Optimizer
-from pathsLoader import load_paths
-from prisonersDataset import PrisonersDataset
-from prisonersModel import PrisonersModel
-from trainingConfig import TrainingConfig
+from src.fitModel import FitModel
+from src.noiseScheduler import Scheduler
+from src.optimizer import Optimizer
+from src.pathsLoader import load_paths
+from src.prisonersDataset import PrisonersDataset
+from src.prisonersModel import PrisonersModel
+from src.trainingConfig import TrainingConfig
 
 # Load paths of files
 paths = load_paths(TrainingConfig.training_data_dir)
@@ -26,7 +26,7 @@ model = PrisonersModel(
 # Create noise scheduler
 scheduler = Scheduler(sample_image=dataset[0].unsqueeze(0), lr_warmup_steps=1000)
 
-# Optimazer
+# Optimizer
 optimizer = Optimizer(
     model=model,
     dataloader=dataloader,

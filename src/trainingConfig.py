@@ -30,10 +30,10 @@ class TrainingConfig:
     save_model_epochs = 1
     mixed_precision = "fp16"  # `no` for float32, `fp16` for automatic mixed precision
     output_dir = "prisoners-output"
-    download_data_dir = "data/training data"
+    download_data_dir = "../data/training data"
     training_data_dir = (
         "data/training data/front"  # the directory containing the training data
     )
-    test_data_dir = "data/test data"
+    test_data_dir = "../data/test data"
     dataset_url = "https://huggingface.co/datasets/MGKK/Prisonersi"
     seed = 0
