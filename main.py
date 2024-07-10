@@ -4,26 +4,20 @@ from torch.utils.data import DataLoader
 from fitModel import FitModel
 from noiseScheduler import Scheduler
 from optimizer import Optimizer
-from pathsLoader import load_paths_prisoners_dataset
+from pathsLoader import load_paths
 from prisonersDataset import PrisonersDataset
 from prisonersModel import PrisonersModel
 from trainingConfig import TrainingConfig
-from unzip import unzip_prisoners_dataset
 
-# Download dataset with: git clone https://huggingface.co/datasets/MGKK/Prisonersi
-# Unzip dataset
-unzip_prisoners_dataset()
 # Load paths of files
-paths = load_paths_prisoners_dataset()
-# Load training config
-trainingConfig = TrainingConfig()
+paths = load_paths(TrainingConfig.training_data_dir)
 # Create dataset
 dataset = PrisonersDataset(paths)
 # Create data loader
 dataloader = DataLoader(dataset=dataset, batch_size=32, shuffle=True)
 # Create model
 model = PrisonersModel(
-    sample_size=trainingConfig.image_size,
+    sample_size=TrainingConfig.image_size,
     in_channels=3,
     out_channels=3,
     layers_per_block=2,
@@ -36,7 +30,7 @@ scheduler = Scheduler(sample_image=dataset[0].unsqueeze(0), lr_warmup_steps=1000
 optimizer = Optimizer(
     model=model,
     dataloader=dataloader,
-    optimizer=torch.optim.AdamW(model.parameters(), lr=trainingConfig.learning_rate),
+    optimizer=torch.optim.AdamW(model.parameters(), lr=TrainingConfig.learning_rate),
 )
 # Train and save model
 

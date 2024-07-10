@@ -14,10 +14,8 @@ class TrainingConfig:
     - save_model_epochs: how often to save the model
     - mixed_precision: whether to use mixed precision training
     - output_dir: the directory to save the model and generated images
-    - push_to_hub: whether to upload the saved model to the HF Hub
-    - hub_model_id: the name of the repository to create on the HF Hub
-    - hub_private_repo: whether to make the HF Hub repository private
-    - overwrite_output_dir: whether to overwrite the old model when re-running the notebook
+    - download_data_dir: the directory to download the training data
+    - training_data_dir: the directory containing the training data
     - seed: the random seed for reproducibility
     """
 
@@ -31,12 +29,11 @@ class TrainingConfig:
     save_image_epochs = 1
     save_model_epochs = 1
     mixed_precision = "fp16"  # `no` for float32, `fp16` for automatic mixed precision
-    output_dir = "prisoners-output"  # the model name locally and on the HF Hub
-
-    push_to_hub = False  # whether to upload the saved model to the HF Hub
-    hub_model_id = (
-        "MGKK/prisonersi"  # the name of the repository to create on the HF Hub
+    output_dir = "prisoners-output"
+    download_data_dir = "data/training data"
+    training_data_dir = (
+        "data/training data/front"  # the directory containing the training data
     )
-    hub_private_repo = False
-    overwrite_output_dir = True  # overwrite the old model when re-running the notebook
+    test_data_dir = "data/test data"
+    dataset_url = "https://huggingface.co/datasets/MGKK/Prisonersi"
     seed = 0
