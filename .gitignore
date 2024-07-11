@@ -3,3 +3,4 @@ __pycache__/
 data/training data/
 .venv/
 .mypy_cache/
+dist/
