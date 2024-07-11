@@ -39,12 +39,51 @@ We hosted cleaned dataset on hiuggingface hub for easier access - https://huggin
 <img src="https://github.com/ThisPrisonerDoesNotExist/ThisPrisonerDoesNotExist/assets/88160078/f4bbde3f-717d-41fd-a847-2a4ac4054eba" width="250" height="250"> <img src="https://github.com/ThisPrisonerDoesNotExist/ThisPrisonerDoesNotExist/assets/88160078/729ac606-bbdc-45c9-86a9-e8182575fc79" width="250" height="250"> <img src="https://github.com/ThisPrisonerDoesNotExist/ThisPrisonerDoesNotExist/assets/88160078/2db746b2-b846-406b-9fd7-d0d625fcf9ff" width="250" height="250">
 <p>PrisonersGeneratorx128:</p>
 <img src="https://github.com/ThisPrisonerDoesNotExist/ThisPrisonerDoesNotExist/assets/88160078/c44fa86a-481f-467a-8dbf-e1007b789a83" width="250" height="250"> <img src="https://github.com/ThisPrisonerDoesNotExist/ThisPrisonerDoesNotExist/assets/88160078/1846560c-594c-4fb5-95d2-58b4c8f2cffe" width="250" height="250"> <img src="https://github.com/ThisPrisonerDoesNotExist/ThisPrisonerDoesNotExist/assets/88160078/5c084fc0-d55b-45c0-9c15-2b2f477c722c" width="250" height="250">
+<p>graph of ssim metric for x128 model:</p>
+
+![image](https://github.com/user-attachments/assets/e18b4b8c-05db-45df-9743-5f05aa09a7ae)
+
+<h1>Usage</h1>
+
+<h2>Installing requirements</h2>
 
 
-Link to example notebook that shows how model works - https://colab.research.google.com/drive/1K0Z79b7U6lcfm12fuJ0VMVv1ks0yD008?authuser=1#scrollTo=_wnKZuaAk78D
+```terminal
+poetry install
+```
 
-same notebook you can find in "notebook" directory
+<h2>Downloading dataset</h2>
 
-Link to model that generates images in resolution 64x64 - https://huggingface.co/MGKK/PrisonersGeneratorx64
+<p>to download data set you can use downloadDataset.py scrpit or do it manualy from link - https://huggingface.co/datasets/MGKK/Prisonersi</p>
 
-Link to model that generates images in resolution 128x128 - https://huggingface.co/MGKK/PrisonersGeneratorx128
+```terminal
+poetry run python thisprisonerdoesnotexist/scripts/downloadDataset.py
+```
+
+<h2>Running project</h2>
+
+```terminal
+poetry run python thisprisonerdoesnotexist/scripts/main.py
+```
+# Development
+## Pre-commits
+Install pre-commits
+https://pre-commit.com/#installation
+
+To make a dry-run of the pre-commits to see if your code passes run
+```
+pre-commit run --all-files
+```
+
+
+## Adding python packages
+Dependencies are handeled by `poetry` framework, to add new dependency run
+```
+poetry add <package_name>
+```
+
+# Example 
+
+Link to example notebook that shows how models works - https://colab.research.google.com/drive/1K0Z79b7U6lcfm12fuJ0VMVv1ks0yD008?authuser=1#scrollTo=_wnKZuaAk78D
+
+
