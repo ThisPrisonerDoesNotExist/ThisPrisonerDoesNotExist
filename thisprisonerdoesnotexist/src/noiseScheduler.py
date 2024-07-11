@@ -1,7 +1,7 @@
 import torch
 from diffusers import DDPMScheduler
 
-from prisonersDataset import PrisonersDataset
+from thisprisonerdoesnotexist.src.prisonersDataset import PrisonersDataset
 
 
 class Scheduler:

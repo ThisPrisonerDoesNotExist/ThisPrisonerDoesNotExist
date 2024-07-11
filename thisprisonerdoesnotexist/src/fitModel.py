@@ -10,7 +10,7 @@ from diffusers.utils import make_image_grid
 from torchmetrics.image import StructuralSimilarityIndexMeasure
 from tqdm.auto import tqdm
 
-from trainingConfig import TrainingConfig
+from thisprisonerdoesnotexist.src.trainingConfig import TrainingConfig
 
 
 class FitModel:
@@ -103,7 +103,7 @@ class FitModel:
             mixed_precision=TrainingConfig.mixed_precision,
             gradient_accumulation_steps=TrainingConfig.gradient_accumulation_steps,
             log_with="tensorboard",
-            project_dir=os.path.join(TrainingConfig.output_dir, "../logs"),
+            project_dir=os.path.join(TrainingConfig.output_dir, "../../logs"),
         )
         if accelerator.is_main_process:
             if TrainingConfig.output_dir is not None:

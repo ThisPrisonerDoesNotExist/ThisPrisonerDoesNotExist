@@ -1,3 +1,5 @@
 __pycache__/
 .idea/
 data/training data/
+.venv/
+.mypy_cache/

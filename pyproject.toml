@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "thisprisonerdoesnotexist"
+name = "ThisPrisonerDoesNotExist"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "source code for training models that generate prisoners"
+authors = ["Kacper Knitter <knitterkacper@gmail.com>","Maciej Gierczak <maciejgier@gmail.com>"]
 readme = "README.md"
-
+packages = [{include = "thisprisonerdoesnotexist"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 pre-commit = "^3.7.1"
 jupyter = "^1.0.0"
-torch = "^2.3.1"
-torchvision = "^0.18.1"
+torch = {version = "^2.3.0+cu121", source = "pytorch-gpu-src"}
+torchvision = "^0.18.0"
 numpy = "<2"
 diffusers = "^0.29.0"
 accelerate = "^0.31.0"
@@ -18,6 +18,10 @@ tensorboard = "^2.17.0"
 torchmetrics = "^1.4.0.post0"
 gitpython = "^3.1.43"
 
+[[tool.poetry.source]]
+name = "pytorch-gpu-src"
+url = "https://download.pytorch.org/whl/cu121"
+priority = "explicit"
 
 [build-system]
 requires = ["poetry-core"]

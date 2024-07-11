@@ -1,13 +1,13 @@
 import torch
 from torch.utils.data import DataLoader
 
-from src.fitModel import FitModel
-from src.noiseScheduler import Scheduler
-from src.optimizer import Optimizer
-from src.pathsLoader import load_paths
-from src.prisonersDataset import PrisonersDataset
-from src.prisonersModel import PrisonersModel
-from src.trainingConfig import TrainingConfig
+from thisprisonerdoesnotexist.src.fitModel import FitModel
+from thisprisonerdoesnotexist.src.noiseScheduler import Scheduler
+from thisprisonerdoesnotexist.src.optimizer import Optimizer
+from thisprisonerdoesnotexist.src.pathsLoader import load_paths
+from thisprisonerdoesnotexist.src.prisonersDataset import PrisonersDataset
+from thisprisonerdoesnotexist.src.prisonersModel import PrisonersModel
+from thisprisonerdoesnotexist.src.trainingConfig import TrainingConfig
 
 # Load paths of files
 paths = load_paths(TrainingConfig.training_data_dir)

@@ -2,7 +2,7 @@ import diffusers
 import torch.optim
 from diffusers.optimization import get_cosine_schedule_with_warmup
 
-from trainingConfig import TrainingConfig
+from thisprisonerdoesnotexist.src.trainingConfig import TrainingConfig
 
 
 class Optimizer:
